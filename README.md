@@ -19,6 +19,7 @@ This project was built with love and butterflies. Not really, it was actually bu
 ### Prerequisites
 
 Make sure to have Node / NPM installed
+* [Node] (https://nodejs.org/en/)
 
 * npm
 
