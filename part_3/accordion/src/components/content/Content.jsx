@@ -3,14 +3,12 @@ import Panel from "../panel/Panel";
 import "./content.styles.css";
 
 const Content = ({ selected, panelA, panelB }) => {
-  const [active, setActive] = useState(true);
-
-  console.log(panelA);
+  const [activePanels, setActivePanels] = useState(["panelA"]);
 
   return (
     <div className={`content-wrapper ${selected ? "visible" : "hidden"}`}>
-      <Panel active={active} panelText={panelA} setActive={setActive} />
-      <Panel active={!active} panelText={panelB} setActive={setActive} />
+      <Panel active={activePanels.includes("PanelA")} panelText={panelA} setActivePanels={setActivePanels} />
+      <Panel active={activePanels.includes("PanelB")} panelText={panelB} setActivePanels={setActivePanels} />
     </div>
   );
 };

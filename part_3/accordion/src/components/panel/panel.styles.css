@@ -13,9 +13,11 @@
 .active-component {
   background-color: #fff;
   color: #000;
+  font-size: 1rem;
 }
 
 .hidden-component {
   background-color: #eee;
+  font-size: 0;
   color: #eee;
 }

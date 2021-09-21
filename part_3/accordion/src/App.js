@@ -8,8 +8,8 @@ import Header from "./components/header/Header";
 function App() {
   const [selected, setSelected] = useState(false);
   
-  const panelA = "Panel A Text";
-  const panelB = "Panel B Text";
+  const panelA = "PanelA";
+  const panelB = "PanelB";
 
   return (
     <div className="App">

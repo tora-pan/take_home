@@ -1,12 +1,13 @@
 import React from "react";
 import "./panel.styles.css";
 
-const Panel = ({ panelText, active, setActive }) => {
-  const handleClick = (className) => {
+const Panel = ({ panelText, active, setActivePanels }) => {
+  const handleClick = () => {
     if (!active) {
-      console.log("not");
+      setActivePanels([panelText]);
     }
   };
+
 
   return (
     <div
