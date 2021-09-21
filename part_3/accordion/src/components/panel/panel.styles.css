@@ -1,0 +1,21 @@
+.panel-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 20px 0 20px;
+  width: 80%;
+  height: 85%;
+  background-color: gray;
+  border: 1px solid red;
+}
+
+.active-component {
+  background-color: #fff;
+  color: #000;
+}
+
+.hidden-component {
+  background-color: #eee;
+  color: #eee;
+}
