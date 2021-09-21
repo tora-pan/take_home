@@ -60,17 +60,6 @@ function App() {
     console.log(data);
   }
 
-  useEffect(() => {
-    //call api
-    // async function fetchMyAPI() {
-    //   let response = await fetch("/data");
-    //   response = await response.json();
-    //   console.log(response);
-    //   setData(response);
-    // }
-    // fetchMyAPI();
-  }, []);
-
   return (
     <div className="app-container">
       <table>
