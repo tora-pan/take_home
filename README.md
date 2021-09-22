@@ -16,7 +16,7 @@ This project was built with love and butterflies. Not really, it was actually bu
 - [Express](https://express.com/)
 - [React](https://reactjs.org/)
 
-### Prerequisites
+### Prerequisites _MAC/WINDOWS_
 
 Make sure to have Node / NPM installed
 
@@ -28,7 +28,18 @@ Make sure to have Node / NPM installed
 npm install npm@latest -g
 ```
 
-### Installation
+### Prequisites for Ubuntu 20.04+
+
+CLI Commands:
+
+```sh
+sudo apt install npm
+curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh
+sudo bash nodesource_setup.sh
+sudo apt-get install -y nodejs
+```
+
+### Installation _MAC/WINDOWS/UBUNTU_
 
 1. Clone the repo
 
