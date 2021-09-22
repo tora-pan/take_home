@@ -4,11 +4,11 @@
   align-items: center;
   justify-content: space-around;
   height: 15vh;
-  background-color: blue;
+  background-color: #eee;
 }
 
 .active {
-  background-color: red;
+  background-color: eee;
 }
 
 .header-button {

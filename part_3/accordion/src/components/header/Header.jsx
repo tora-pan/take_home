@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./header.styles.css";
 
-const Header = ({ setSelected }) => {
+const Header = ({ setSelected, headerText }) => {
   const [toggler, setToggler] = useState(true);
 
   const toggle = () => {
@@ -16,9 +16,9 @@ const Header = ({ setSelected }) => {
 
   return (
     <div className={`header-wrapper ${toggler ? "active" : ""}`}>
-      <span>30%</span>
-      <span>$2000000</span>
-      <span>85%</span>
+      <span>{headerText[0]}</span>
+      <span>{headerText[1]}</span>
+      <span>{headerText[2]}</span>
       <div className="header-button" onClick={toggle}>
         {`${toggler ? "+" : "-"} `}
       </div>

@@ -16,7 +16,6 @@ const getData = (file) => {
 };
 
 app.get("/data", (req, res) => {
-  console.log("getting pinged");
   if (results.length == 0) {
     results = getData(fileName);
   }
