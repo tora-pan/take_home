@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import "./header.styles.css";
 
 const Header = ({ setSelected, headerText }) => {
-  const [toggler, setToggler] = useState(true);
+  const [toggler, setToggler] = useState(false);
 
   const toggle = () => {
-    console.log(`toggler is ${toggler}`);
     if (toggler === true) {
       setSelected(true);
     } else {

@@ -6,7 +6,7 @@ import Content from "./components/content/Content";
 import Header from "./components/header/Header";
 
 function App() {
-  const [selected, setSelected] = useState(false);
+  const [selected, setSelected] = useState(true);
 
   let myData = {
     "header-Data": ["30%", "$2000000", "85%"],
@@ -15,7 +15,6 @@ function App() {
     "content-B":
       "This should be displayed in Panel B. This should be hidden by default",
   };
-
 
   const headerText = myData["header-Data"];
   const panelAText = myData["content-A"];
