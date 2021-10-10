@@ -23,7 +23,6 @@ const getData = (file) => {
 
 //when the client reaches out to '/data' the preparsed results are sent
 app.get("/data", (req, res) => {
-  console.log("getting tickled");
   res.send(filteredResults);
 });
 
