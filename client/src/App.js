@@ -6,10 +6,11 @@ function App() {
   const [data, setData] = useState([]);
 
   async function fetchMyAPI() {
-    let response = await fetch("/data");
-    response = await response.json();
-    setData(response);
-    console.log(data);
+    if (data.length === 0) {
+      let response = await fetch("/data");
+      response = await response.json();
+      setData(response);
+    }
   }
 
   return (
