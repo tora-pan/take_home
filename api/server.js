@@ -9,27 +9,23 @@ let filteredResults = [];
 const fileName = "properties.csv";
 
 //csv gets passed and pushed to the reuslts array, then calls the function to filter on 'end'.
-const getData = (file) => {
+const getData = (file, filterDataFunc = filterData) => {
   fs.createReadStream(file)
     .pipe(csv({}))
     .on("data", (data) => {
       results.push(data);
     })
     .on("end", () => {
-      filterData();
+      // filterData();
+      filterDataFunc();
     });
   return results;
 };
 
-//when the client reaches out to '/data' the preparsed results are sent
-app.get("/data", (req, res) => {
-  res.send(filteredResults);
-});
-
 //parse the csv if the results array is currently empty.
-function preParseData() {
+function preParseData(getDataFunc = getData) {
   if (results.length == 0) {
-    results = getData(fileName);
+    results = getDataFunc(fileName);
   }
 }
 
@@ -70,11 +66,14 @@ function filterData() {
   }
 }
 
-//when api loads up preparse the csv so it's ready to send to the client.
-app.listen(5000, function () {
-  preParseData();
-});
-
+/**
+ * return number of empty "value" fields. if none return 0 else return count.
+ * example:
+ *  data = {"Key": "Value", "Key2": "Value2",}
+ *
+ * @param {Object} data comma separated key value pairs
+ * @returns {Integer} count number of empty values.
+ */
 function missingFields(data) {
   let count = 0;
   let row = Object.values(data);
@@ -86,6 +85,15 @@ function missingFields(data) {
   return count;
 }
 
+/**
+ * return number of empty "value" fields. if none return 0 else return count.
+ * example:
+ *  dataSet1 = {"Key1": "Value1", "Key2": "Value2","Key3": "Value3", "Key4": "Value4"}
+ *  dataSet2 = {"Key1": "Value1", "Key2": "","Key3": "Value3", "Key4": "Value4"}
+ *
+ * @param {Object} data comma separated key value pairs
+ * @returns {String} a string where each digit indicates consecutive columns with and without data
+ */
 function missingDataEncoding(data) {
   let empty = 0;
   let notEmpty = 0;
@@ -120,3 +128,26 @@ function missingDataEncoding(data) {
   }
   return missingData;
 }
+
+//when the client reaches out to '/data' the preparsed results are sent
+app.get("/data", (req, res) => {
+  res.send(filteredResults);
+});
+
+//when api loads up preparse the csv so it's ready to send to the client.
+const theServer = app.listen(5000, function () {
+  preParseData();
+});
+
+function shutItDown() {
+  theServer.close();
+}
+
+module.exports = {
+  missingDataEncoding,
+  missingFields,
+  filterData,
+  preParseData,
+  getData,
+  shutItDown,
+};
