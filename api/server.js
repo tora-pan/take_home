@@ -9,17 +9,22 @@ let filteredResults = [];
 const fileName = "properties.csv";
 
 //csv gets passed and pushed to the reuslts array, then calls the function to filter on 'end'.
-const getData = (file, filterDataFunc = filterData) => {
+const getData = (
+  file = fileName,
+  filterDataFunc = filterData,
+  arr = results
+) => {
   fs.createReadStream(file)
     .pipe(csv({}))
     .on("data", (data) => {
-      results.push(data);
+      arr.push(data);
     })
     .on("end", () => {
       // filterData();
       filterDataFunc();
     });
-  return results;
+
+  return arr;
 };
 
 //parse the csv if the results array is currently empty.

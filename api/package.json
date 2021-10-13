@@ -12,7 +12,7 @@
     "nodemon": "^2.0.12"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
     "devStart": "nodemon server.js"
   },
   "keywords": [],
