@@ -3,7 +3,7 @@ import "./button.styles.css";
 
 const Button = ({ callApi, buttonText }) => {
   return (
-    <div className="button">
+    <div className="button" data-testid="button-id">
       <button onClick={callApi}>{buttonText}</button>
     </div>
   );
