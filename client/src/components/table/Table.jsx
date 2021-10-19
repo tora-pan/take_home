@@ -3,10 +3,10 @@ import "./table.styles.css";
 
 const Table = (data) => {
   return (
-    <div className="table">
+    <div className="table" data-testid="table-id">
       <table>
         <thead>
-          <tr>
+          <tr data-testid="table-tr">
             <th>Property Name</th>
             <th>Address</th>
             <th>City</th>
@@ -17,17 +17,18 @@ const Table = (data) => {
           </tr>
         </thead>
         <tbody>
-          {data.data.map((property) => (
-            <tr>
-              <td>{property.PROP_NAME}</td>
-              <td>{property.ADDRESS}</td>
-              <td>{property.CITY}</td>
-              <td>{property.STATE_ID}</td>
-              <td>{property.ZIP}</td>
-              <td>{property.MISSING_FIELD_COUNT}</td>
-              <td>{property.MISSING_DATA_ENCODING}</td>
-            </tr>
-          ))}
+          {data.data &&
+            data.data.map((property, key) => (
+              <tr key={key}>
+                <td>{property.PROP_NAME}</td>
+                <td>{property.ADDRESS}</td>
+                <td>{property.CITY}</td>
+                <td>{property.STATE_ID}</td>
+                <td>{property.ZIP}</td>
+                <td>{property.MISSING_FIELD_COUNT}</td>
+                <td>{property.MISSING_DATA_ENCODING}</td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>
