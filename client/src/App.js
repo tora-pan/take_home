@@ -7,7 +7,7 @@ import "./App.css";
 
 function App() {
   const [data, setData] = useState([]);
-  const [buttonText, setButtonText] = useState("Loadd Data");
+  const [buttonText, setButtonText] = useState("Load Data");
 
   async function fetchMyAPI() {
     if (data.length === 0) {
