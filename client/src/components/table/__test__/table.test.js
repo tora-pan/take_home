@@ -36,35 +36,36 @@ it("renders in table rows based on provided columns", () => {
   ];
   const data = [
     {
-      PROPERTY_NAME: "property 1",
+      PROP_NAME: "property 1",
       ADDRESS: "address 1",
       CITY: "city 1",
-      STATE: "state 1",
+      STATE_ID: "state 1",
       ZIP: "zip 1",
-      MISSING_FIELDS: "missing fields 1",
+      MISSING_FIELD_COUNT: "missing fields 1",
       MISSING_DATA_ENCODING: "missing data encoding 1",
     },
     {
-      PROPERTY_NAME: "property 2",
+      PROP_NAME: "property 2",
       ADDRESS: "address 2",
       CITY: "city 2",
-      STATE: "state 2",
+      STATE_ID: "state 2",
       ZIP: "zip 2",
-      MISSING_FIELDS: "missing fields 2",
+      MISSING_FIELD_COUNT: "missing fields 2",
       MISSING_DATA_ENCODING: "missing data encoding 2",
     },
     {
-      PROPERTY_NAME: "property 3",
+      PROP_NAME: "property 3",
       ADDRESS: "address 3",
       CITY: "city 3",
-      STATE: "state 3",
+      STATE_ID: "state 3",
       ZIP: "zip 3",
-      MISSING_FIELDS: "missing fields 3",
+      MISSING_FIELD_COUNT: "missing fields 3",
       MISSING_DATA_ENCODING: "missing data encoding 3",
     },
   ];
   // Shallow render Data Table
   const container = shallow(<Table data={data} cols={cols} />);
+
   // There should be ONLY 1 table element
   const table = container.find("table");
   expect(table).toHaveLength(1);
@@ -89,9 +90,12 @@ it("renders in table rows based on provided columns", () => {
   rows.forEach((tr, rowIndex) => {
     const cells = tr.find("td");
     expect(cells).toHaveLength(cols.length);
+    expect(cells.at(0).text()).toEqual(data[rowIndex].PROP_NAME);
     expect(cells.at(1).text()).toEqual(data[rowIndex].ADDRESS);
     expect(cells.at(2).text()).toEqual(data[rowIndex].CITY);
+    expect(cells.at(3).text()).toEqual(data[rowIndex].STATE_ID);
     expect(cells.at(4).text()).toEqual(data[rowIndex].ZIP);
+    expect(cells.at(5).text()).toEqual(data[rowIndex].MISSING_FIELD_COUNT);
     expect(cells.at(6).text()).toEqual(data[rowIndex].MISSING_DATA_ENCODING);
   });
 });
