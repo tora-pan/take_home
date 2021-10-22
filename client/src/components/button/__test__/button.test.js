@@ -1,12 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { render, screen, cleanup, fireEvent } from "@testing-library/react";
+import { render, cleanup, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import userEvent from "@testing-library/user-event";
 
 import Button from "../Button";
 
-import { configure, shallow } from "enzyme";
+import { configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 configure({ adapter: new Adapter() });
 
